@@ -149,6 +149,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ':language/message/delete/:id/*', array ( 'language' => null,
                                                       'controller' => 'message',
                                                       'action' => 'delete'));
+        $routeApiShowGive = new Zend_Controller_Router_Route (
+            ':language/api/v1/give/show/:id/*', array ( 'language' => null,
+                                                        'controller' => 'api',
+                                                        'action' => 'showgive'));
 
         $router->addRoute ( 'default', $routeLang );//important, put the default route first!
         $router->addRoute ( 'woeid/woeid/ad_type', $routeWoeid );
@@ -163,6 +167,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $router->addRoute ( 'message/show', $routeMessageShow);
         $router->addRoute ( 'message/list', $routeMessageList);
         $router->addRoute ( 'message/delete', $routeMessageDelete);
+        $router->addRoute ( 'api/give/show/id', $routeApiShowGive );
 
         $front->setRouter ( $router );
         return $front;
