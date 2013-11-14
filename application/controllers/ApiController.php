@@ -15,6 +15,8 @@ class ApiController extends Zend_Controller_Action {
             $this->_helper->json(array("id" => $id,
                                        "error_message" => "id not found"));
         } else {
+            unset($this->view->ad["ip"]);
+            unset($this->view->ad["user_owner"]);
             $this->_helper->json($this->view->ad);
         }
     }
